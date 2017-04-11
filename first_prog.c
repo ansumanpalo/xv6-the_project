@@ -7,6 +7,6 @@
 int
 main(void)
 {
- printf(2, "Checking Termainal output\n");
+ printf(1, "Checking Termainal output\n");
  exit();
 }

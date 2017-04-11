@@ -18,10 +18,10 @@ main(void)
    b:	89 e5                	mov    %esp,%ebp
    d:	51                   	push   %ecx
    e:	83 ec 04             	sub    $0x4,%esp
- printf(2, "Checking Termainal output\n");
+ printf(1, "Checking Termainal output\n");
   11:	83 ec 08             	sub    $0x8,%esp
   14:	68 ac 07 00 00       	push   $0x7ac
-  19:	6a 02                	push   $0x2
+  19:	6a 01                	push   $0x1
   1b:	e8 d6 03 00 00       	call   3f6 <printf>
   20:	83 c4 10             	add    $0x10,%esp
  exit();
