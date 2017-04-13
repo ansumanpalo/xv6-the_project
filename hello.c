@@ -1,3 +1,10 @@
+//---------------------------------------
+/*
+ 	The program takes argument separated by space, 
+	print them to ouput with 'Hello' in beginning. 
+*/
+//---------------------------------------
+
 #include "types.h"
 #include "stat.h"
 #include "user.h"
