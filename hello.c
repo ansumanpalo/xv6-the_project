@@ -1,7 +1,7 @@
 //---------------------------------------
 /*
- 	The program takes argument separated by space, 
-	print them to ouput with 'Hello' in beginning. 
+ 	The program takes argument separated by space,
+	print them to ouput with 'Hello' in beginning.
 */
 //---------------------------------------
 
@@ -20,6 +20,7 @@ main(int argc, char *argv[])
   printf(1, "Hello ");
   for(i = 1; i<argc; i++){
     printf(1, argv[i]);
+    printf(1, " ");
   }
   printf(1, "\n");
   exit();
