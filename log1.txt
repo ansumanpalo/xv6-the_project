@@ -1,0 +1,41 @@
+commit aa0ba346c62d7410ed02fedca7aaecb6f8dba47f
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Fri Apr 14 15:22:51 2017 +0530
+
+    Small change in hello.c
+
+commit d6957998f57798889fc224eb4e040070bc0d8923
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Fri Apr 14 03:06:06 2017 +0530
+
+    comments has been added in beginning of each code
+
+commit d96d895d78ae661fe8146a7da7a8abeb7c50c76c
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Wed Apr 12 03:52:17 2017 +0530
+
+     sleepN.c user program is added.
+
+commit 5786168ce1b2bb5d0273f96c6ea7bf81c4b3da94
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Wed Apr 12 02:13:03 2017 +0530
+
+     Hello.c program is corrected to give proper output
+
+commit e2225c4f1f8fea23bf2efc4954de0a4d47d0d855
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Wed Apr 12 01:49:05 2017 +0530
+
+     Hello.c is added which take argument and display them on conole
+
+commit b0e9500958457d9c53799a8c61e1073e92d631f4
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Tue Apr 11 03:25:45 2017 +0530
+
+    First Program is add: first_prog.c. The program give output to file link to 2nd position in file discriptor.
+
+commit 12fc156595d99299e0cbc0ed90d965c181dc0bed
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Tue Apr 11 02:45:29 2017 +0530
+
+    Shell has been modified.
