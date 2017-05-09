@@ -117,6 +117,7 @@ int             wait(void);
 void            wakeup(void*);
 void            yield(void);
 int		randX(int);
+int		u_random();
 
 // swtch.S
 void            swtch(struct context**, struct context*);

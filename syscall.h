@@ -22,3 +22,4 @@
 #define SYS_close  21
 #define SYS_randomX 22
 #define SYS_setSeedX 23
+#define SYS_uniformR 24

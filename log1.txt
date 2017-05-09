@@ -1,3 +1,24 @@
+commit 03ab5be0e6c4aefcb90d37c254e332b828ff4e4e
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Mon May 8 20:06:48 2017 +0530
+
+    Two new system calls have been added. 1-> randomX
+    2-> setSeedX
+    A new global variable has been defined.
+    int seedX, in proc.c file. It serve as seed to generate random number using XORshift algorithm. A function is added to proc.c. The function is: int randX(int) , it shift and xor the input and return the result.
+    'setSeedX' system call take one argument and set the value to varibale 'int seedX', present in proc.c. 'randomX' system call uses 'int seedX' and call 'int randX(int)', present in proc.c, and set the new random value returned from function to 'seedX' hence updating seed.
+    Following new programs are added which uses above system calls:
+    1) randX.c
+    2) setSeedX.c
+    randX.c calls system call 'randomX' and print the value returned from system call.
+    setSeedX.c calls 'setSeedX' system call and set the seed to the value passed to it through argument.
+
+commit 739252fece4a352f036e71b9b9bd727f7c68db81
+Author: ankit98verma <ankitvermajnp@gmail.com>
+Date:   Fri Apr 14 15:55:53 2017 +0530
+
+    Log File: log1.txt is updated
+
 commit aa0ba346c62d7410ed02fedca7aaecb6f8dba47f
 Author: ankit98verma <ankitvermajnp@gmail.com>
 Date:   Fri Apr 14 15:22:51 2017 +0530

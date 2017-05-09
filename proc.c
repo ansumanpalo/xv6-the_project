@@ -8,6 +8,9 @@
 #include "spinlock.h"
 
 int seedX;
+unsigned int ur_A = 1664525;
+unsigned int ur_B = 1013904223;
+unsigned int ur_M = 2147483647;
 
 struct {
   struct spinlock lock;
@@ -462,4 +465,10 @@ int
 randX(int x)
 {
     return x^(x << 1);
+}
+
+int
+u_random()
+{
+    return (ur_A*seedX + ur_B)% ur_M;
 }

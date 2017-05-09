@@ -109,3 +109,16 @@ sys_setSeedX(void)
     seedX = x;
     return 23;
 }
+
+int
+sys_uniformR(void)
+{
+
+    int a, b;
+    if(argint(0, &a) < 0 || argint(1, &b) < 0)
+        return -1;
+    b = b + 1;
+    seedX = u_random();
+    return a + seedX % (b-a);
+
+}

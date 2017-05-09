@@ -24,6 +24,7 @@ int sleep(int);
 int uptime(void);
 int randomX(void);
 int setSeedX(int);
+int uniformR(int, int);
 
 // ulib.c
 int stat(char*, struct stat*);
