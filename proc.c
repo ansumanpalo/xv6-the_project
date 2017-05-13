@@ -7,7 +7,9 @@
 #include "proc.h"
 #include "spinlock.h"
 
-int seedX;
+int seedX, seed_sched;
+int rand_sched(int min_sched, int max_sched);
+
 unsigned int ur_A = 1664525;
 unsigned int ur_B = 1013904223;
 unsigned int ur_M = 2147483647;
@@ -273,7 +275,7 @@ scheduler(void)
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
       if(p->state != RUNNABLE)
         continue;
-
+        cprintf("Number: %d\n", rand_sched(1,10));
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
@@ -471,4 +473,10 @@ int
 u_random()
 {
     return (ur_A*seedX + ur_B)% ur_M;
+}
+
+
+int rand_sched(int min_sched, int max_sched){
+    seed_sched = (ur_A*seed_sched + ur_B)% ur_M;
+    return min_sched + seed_sched%(max_sched-min_sched+1);
 }
