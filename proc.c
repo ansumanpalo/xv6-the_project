@@ -163,6 +163,7 @@ fork(void)
 
   pid = np->pid;
   np->state = RUNNABLE;
+  np->deadline = 0;
   safestrcpy(np->name, proc->name, sizeof(proc->name));
   return pid;
 }
@@ -266,8 +267,9 @@ scheduler(void)
 {
   struct proc *p;
 
-    int pid_curr=0;
-    int count_RUN = 0;
+  int pid_curr=0;
+  uint curr_dead=0; 
+  int count_RUN = 0;
 
   for(;;){
     // Enable interrupts on this processor.
@@ -277,12 +279,24 @@ scheduler(void)
     acquire(&ptable.lock);
 
     //cprintf("\nEntered Sched\n");
-    count_RUN = 0;
-    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
-        if(p->state == RUNNABLE){ //|| p->state == SLEEPING){
-            pid_list[count_RUN++] = p->pid;
-            //cprintf("PID: %d\n", pid_list[count_RUN-1]);
+    count_RUN = 0; curr_dead=0xFFFFFFFF;
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+
+      if(p->state == RUNNABLE){ //|| p->state == SLEEPING){
+       
+        if(curr_dead == p->deadline){
+          pid_list[count_RUN++] = p->pid;
+          cprintf("If PID: %d Deadline: %d Count: %d\n", pid_list[count_RUN-1], p->deadline, count_RUN);
         }
+        else if( p->deadline < curr_dead ){
+          count_RUN = 0;
+          pid_list[count_RUN++] = p->pid;
+          curr_dead = p->deadline;
+          cprintf("Else PID: %d Deadline: %d Count: %d\n", pid_list[count_RUN-1], p->deadline, count_RUN);
+        }
+         
+      }
+    }
 
 
     if(count_RUN > 0){
@@ -306,7 +320,7 @@ scheduler(void)
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
-      cprintf("Count: %d pid_curr: %d Process pid: %d\n",count_RUN,pid_curr, p->pid);
+      cprintf("[Processid_curr: %d Process pid: %d\n\n",pid_curr, p->pid);
       proc = p;
       switchuvm(p);
       p->state = RUNNING;
