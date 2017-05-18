@@ -286,15 +286,14 @@ scheduler(void)
        
         if(curr_dead == p->deadline){
           pid_list[count_RUN++] = p->pid;
-          cprintf("If PID: %d Deadline: %d Count: %d\n", pid_list[count_RUN-1], p->deadline, count_RUN);
         }
         else if( p->deadline < curr_dead ){
           count_RUN = 0;
           pid_list[count_RUN++] = p->pid;
           curr_dead = p->deadline;
-          cprintf("Else PID: %d Deadline: %d Count: %d\n", pid_list[count_RUN-1], p->deadline, count_RUN);
         }
          
+         cprintf("PID: %d Deadline: %d Count: %d\n", p->pid, p->deadline, count_RUN);
       }
     }
 
