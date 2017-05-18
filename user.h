@@ -25,7 +25,7 @@ int uptime(void);
 int randomX(void);
 int setSeedX(int);
 int uniformR(int, int);
-
+int setdeadline(int);
 // ulib.c
 int stat(char*, struct stat*);
 char* strcpy(char*, char*);

@@ -122,3 +122,13 @@ sys_uniformR(void)
     return a + seedX % (b-a);
 
 }
+
+int
+sys_setdeadline(void)
+{
+    int x;
+    if(argint(0, &x) < 0)
+        return -1;
+    proc->deadline= x;
+    return proc->deadline;
+}

@@ -42,7 +42,7 @@ forktest(void)
 
   printf(1, "fork test\n");
   2f:	83 ec 08             	sub    $0x8,%esp
-  32:	68 74 04 00 00       	push   $0x474
+  32:	68 7c 04 00 00       	push   $0x47c
   37:	6a 01                	push   $0x1
   39:	e8 c2 ff ff ff       	call   0 <printf>
   3e:	83 c4 10             	add    $0x10,%esp
@@ -86,7 +86,7 @@ forktest(void)
     printf(1, "fork claimed to work N times!\n", N);
   7c:	83 ec 04             	sub    $0x4,%esp
   7f:	68 e8 03 00 00       	push   $0x3e8
-  84:	68 80 04 00 00       	push   $0x480
+  84:	68 88 04 00 00       	push   $0x488
   89:	6a 01                	push   $0x1
   8b:	e8 70 ff ff ff       	call   0 <printf>
   90:	83 c4 10             	add    $0x10,%esp
@@ -101,7 +101,7 @@ forktest(void)
   9f:	79 17                	jns    b8 <forktest+0x8f>
       printf(1, "wait stopped early\n");
   a1:	83 ec 08             	sub    $0x8,%esp
-  a4:	68 9f 04 00 00       	push   $0x49f
+  a4:	68 a7 04 00 00       	push   $0x4a7
   a9:	6a 01                	push   $0x1
   ab:	e8 50 ff ff ff       	call   0 <printf>
   b0:	83 c4 10             	add    $0x10,%esp
@@ -127,7 +127,7 @@ forktest(void)
   ca:	74 17                	je     e3 <forktest+0xba>
     printf(1, "wait got too many\n");
   cc:	83 ec 08             	sub    $0x8,%esp
-  cf:	68 b3 04 00 00       	push   $0x4b3
+  cf:	68 bb 04 00 00       	push   $0x4bb
   d4:	6a 01                	push   $0x1
   d6:	e8 25 ff ff ff       	call   0 <printf>
   db:	83 c4 10             	add    $0x10,%esp
@@ -137,7 +137,7 @@ forktest(void)
   
   printf(1, "fork test OK\n");
   e3:	83 ec 08             	sub    $0x8,%esp
-  e6:	68 c6 04 00 00       	push   $0x4c6
+  e6:	68 ce 04 00 00       	push   $0x4ce
   eb:	6a 01                	push   $0x1
   ed:	e8 0e ff ff ff       	call   0 <printf>
   f2:	83 c4 10             	add    $0x10,%esp
@@ -546,7 +546,7 @@ itoa(int val, int base){
  337:	99                   	cltd   
  338:	f7 7d 0c             	idivl  0xc(%ebp)
  33b:	89 d0                	mov    %edx,%eax
- 33d:	0f b6 80 d4 04 00 00 	movzbl 0x4d4(%eax),%eax
+ 33d:	0f b6 80 dc 04 00 00 	movzbl 0x4dc(%eax),%eax
  344:	8b 55 fc             	mov    -0x4(%ebp),%edx
  347:	81 c2 e0 06 00 00    	add    $0x6e0,%edx
  34d:	88 02                	mov    %al,(%edx)
@@ -770,3 +770,8 @@ SYSCALL(uniformR)
  46b:	b8 18 00 00 00       	mov    $0x18,%eax
  470:	cd 40                	int    $0x40
  472:	c3                   	ret    
+
+00000473 <setdeadline>:
+ 473:	b8 19 00 00 00       	mov    $0x19,%eax
+ 478:	cd 40                	int    $0x40
+ 47a:	c3                   	ret    
