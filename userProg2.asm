@@ -836,7 +836,6 @@ SYSCALL(uniformR)
  532:	c3                   	ret    
 
 00000533 <setdeadline>:
-SYSCALL(setdeadline)
  533:	b8 19 00 00 00       	mov    $0x19,%eax
  538:	cd 40                	int    $0x40
  53a:	c3                   	ret    
